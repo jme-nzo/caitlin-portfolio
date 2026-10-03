@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Caitlin — Content Creator Portfolio</title>
+  <meta name="description" content="Caitlin's portfolio: about, rates, results, projects and contact.">
+  <meta name="theme-color" content="#f6f4ef">
+
+  <!-- Clash Display (headings) via Fontshare. Body text uses Arial. -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a class="nav__brand" href="#about">Caitlin</a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">Open menu</span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#rates">Rates</a></li>
+        <li><a class="nav__link" href="#results">Results</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#contact">Contact me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ SECTION 1: ABOUT ============ -->
+    <section class="section section--about" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__text">
+          <p class="eyebrow">Content creator · Singapore</p>
+          <h1 class="title" id="about-title">Hi, I'm Caitlin.</h1>
+          <!-- TEMP: placeholder about-me copy — replace with your own -->
+          <p class="lead">
+            I make short-form content that feels like a conversation with a friend: honest reviews,
+            everyday rituals and the little details that make a brand worth talking about.
+          </p>
+          <p>
+            Over the past few years I've partnered with lifestyle, beauty and tech brands to tell stories
+            that real people actually stop scrolling for. When I'm not filming, you'll find me hunting
+            for the best bubble tea in town or planning my next weekend trip.
+          </p>
+          <a class="btn btn--primary" href="#contact">Work with me</a>
+        </div>
+
+        <!-- TEMP: photo placeholder — replace with <img src="assets/caitlin.jpg" alt="Portrait of Caitlin"> -->
+        <figure class="about__photo" role="img" aria-label="Photo placeholder">
+          <span aria-hidden="true">Photo</span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2: RATES ============ -->
+    <section class="section section--rates" id="rates" aria-labelledby="rates-title">
+      <div class="container">
+        <h2 class="section-title" id="rates-title">Rates</h2>
+        <p class="section-intro">Starting prices. Every brief is different, so get in touch for a tailored package.</p>
+
+        <!-- TEMP: placeholder rates — replace with your real pricing -->
+        <ul class="rates">
+          <li class="rate-card">
+            <h3 class="rate-card__name">Instagram Story</h3>
+            <p class="rate-card__price">S$300</p>
+            <ul class="rate-card__list">
+              <li>3-frame story set</li>
+              <li>Link sticker</li>
+              <li>24h live</li>
+            </ul>
+          </li>
+          <li class="rate-card rate-card--featured">
+            <p class="rate-card__tag">Most popular</p>
+            <h3 class="rate-card__name">Reel / TikTok</h3>
+            <p class="rate-card__price">S$800</p>
+            <ul class="rate-card__list">
+              <li>30–60s vertical video</li>
+              <li>1 round of revisions</li>
+              <li>Raw footage on request</li>
+            </ul>
+          </li>
+          <li class="rate-card">
+            <h3 class="rate-card__name">Campaign bundle</h3>
+            <p class="rate-card__price">S$1,800</p>
+            <ul class="rate-card__list">
+              <li>2 Reels + 3 Stories</li>
+              <li>30-day usage rights</li>
+              <li>Performance report</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 3: RESULTS ============ -->
+    <section class="section section--results" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <h2 class="section-title" id="results-title">Results</h2>
+
+        <!-- TEMP: placeholder stats — replace with your real numbers -->
+        <dl class="stats">
+          <div class="stat">
+            <dt class="stat__label">Total views</dt>
+            <dd class="stat__value">12M+</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Avg. engagement</dt>
+            <dd class="stat__value">8.4%</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Brand campaigns</dt>
+            <dd class="stat__value">60+</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Followers</dt>
+            <dd class="stat__value">150K</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Brand carousel: infinite, right → left. The list is duplicated in JS for a seamless loop.
+           Logos are currently black text wordmarks. To use real logo files, replace each
+           <span class="logo__mark">…</span> with <img src="assets/logos/samsung.svg" alt="Samsung">
+           and keep the .logo wrapper so spacing stays even. -->
+      <div class="brands" aria-labelledby="brands-title">
+        <div class="container brands__head">
+          <h3 class="brands__title" id="brands-title">Brands I've worked with</h3>
+          <button class="brands__pause" type="button" aria-pressed="false">Pause</button>
+        </div>
+        <div class="marquee">
+          <ul class="marquee__track">
+            <li class="logo"><span class="logo__mark logo--samsung">SAMSUNG</span></li>
+            <li class="logo"><span class="logo__mark logo--urbanlist">THE URBAN LIST</span></li>
+            <li class="logo"><span class="logo__mark logo--loreal">L’ORÉAL</span></li>
+            <li class="logo"><span class="logo__mark logo--maribank">MariBank</span></li>
+            <li class="logo"><span class="logo__mark logo--bigbus">BIG BUS</span></li>
+            <li class="logo"><span class="logo__mark logo--sk">SK JEWELLERY</span></li>
+            <li class="logo"><span class="logo__mark logo--pantene">PANTENE</span></li>
+            <li class="logo"><span class="logo__mark logo--heytea">HEYTEA</span></li>
+            <li class="logo"><span class="logo__mark logo--helloride">HelloRide</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 4: PROJECTS ============ -->
+    <section class="section section--projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section-title" id="projects-title">Projects</h2>
+        <p class="section-intro">A few recent pieces. Swipe sideways on mobile.</p>
+
+        <ul class="projects">
+          <!--
+            ===== TEMP VIDEO PLACEHOLDER (1 of 3) =====
+            iPhone portrait size (9:16). To add your video, replace the <div class="video-placeholder">…</div> with:
+              <video class="project__video" src="assets/videos/project-1.mp4" poster="assets/videos/project-1.jpg"
+                     controls playsinline preload="metadata" aria-label="Project 1: describe the video"></video>
+          -->
+          <li class="project">
+            <div class="video-placeholder" role="img" aria-label="Video placeholder 1">
+              <span aria-hidden="true">Video 1<br>9:16</span>
+            </div>
+            <p class="project__name">Project one</p>
+          </li>
+
+          <!-- ===== TEMP VIDEO PLACEHOLDER (2 of 3) — replace the same way as above ===== -->
+          <li class="project">
+            <div class="video-placeholder" role="img" aria-label="Video placeholder 2">
+              <span aria-hidden="true">Video 2<br>9:16</span>
+            </div>
+            <p class="project__name">Project two</p>
+          </li>
+
+          <!-- ===== TEMP VIDEO PLACEHOLDER (3 of 3) — replace the same way as above ===== -->
+          <li class="project">
+            <div class="video-placeholder" role="img" aria-label="Video placeholder 3">
+              <span aria-hidden="true">Video 3<br>9:16</span>
+            </div>
+            <p class="project__name">Project three</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 5: CONTACT ============ -->
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <h2 class="title" id="contact-title">Let's make something together.</h2>
+        <p class="lead">Have a campaign in mind? Send me a note and I'll reply within two working days.</p>
+        <!-- TEMP: placeholder email — change it in BOTH the href and the visible text -->
+        <a class="btn btn--primary btn--large"
+           href="mailto:hello@example.com?subject=Collaboration%20enquiry">Email me</a>
+        <p class="contact__email">or write to <a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+      <footer class="footer">
+        <p>© <span id="year">2026</span> Caitlin. All rights reserved.</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
