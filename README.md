@@ -39,5 +39,5 @@ Each follows a 60/30/10 split (documented at the top of `styles.css`). To keep o
 - Text contrast meets WCAG AA in all three palettes (most text AAA)
 - Touch targets are at least 44×44px
 - Hamburger menu exposes `aria-expanded` and closes with Escape
-- Brand carousel can be paused (button, hover or keyboard focus)
+- Brand carousel pauses on hover or keyboard focus, and stops for users who prefer reduced motion
 - Animations and smooth scrolling are turned off for users who prefer reduced motion

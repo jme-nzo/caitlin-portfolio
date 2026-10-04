@@ -64,13 +64,28 @@
     track.appendChild(clone);
   });
 
-  // Pause control (WCAG 2.2.2: moving content must be pausable)
-  const marquee = document.querySelector('.marquee');
-  const pauseBtn = document.querySelector('.brands__pause');
-  pauseBtn.addEventListener('click', () => {
-    const paused = marquee.classList.toggle('is-paused');
-    pauseBtn.setAttribute('aria-pressed', String(paused));
-    pauseBtn.textContent = paused ? 'Play' : 'Pause';
+  /* ---------- Project sliders (mobile): arrow buttons scroll one video at a time ---------- */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('.project-group').forEach((group) => {
+    const list = group.querySelector('.projects');
+    const [prev, next] = group.querySelectorAll('.slider-btn');
+
+    const step = () => {
+      const card = list.querySelector('.project');
+      return card.offsetWidth + parseFloat(getComputedStyle(list).columnGap || 0);
+    };
+    const update = () => {
+      const max = list.scrollWidth - list.clientWidth - 2;
+      prev.disabled = list.scrollLeft <= 2;
+      next.disabled = list.scrollLeft >= max;
+    };
+
+    [prev, next].forEach((btn) => btn.addEventListener('click', () => {
+      list.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    }));
+    list.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   });
 
   /* ---------- TEMP: Palette switcher (remove once a palette is chosen) ---------- */

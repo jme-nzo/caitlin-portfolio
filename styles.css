@@ -331,7 +331,8 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
     left: 0; right: 0;
     height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top));
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 16px var(--gutter) calc(32px + env(safe-area-inset-bottom));
     background: var(--bg);
     opacity: 0;
@@ -345,9 +346,11 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
     transform: none;
     transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
   }
-  .nav__menu li { border-bottom: 1px solid var(--line); }
+  .nav__menu li { width: 100%; max-width: 320px; border-bottom: 1px solid var(--line); }
+  .nav__menu li:first-child { border-top: 1px solid var(--line); }
   .nav__link {
     width: 100%;
+    justify-content: center;
     min-height: 64px;
     padding: 0;
     font-size: 1.5rem;
@@ -414,7 +417,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 
 @media (max-width: 767px) {
   .about { grid-template-columns: 1fr; gap: 24px; }
-  .about__photo { order: -1; aspect-ratio: 1 / 1; max-height: 32svh; width: auto; justify-self: start; }
+  .about__photo { order: -1; width: 100%; aspect-ratio: auto; height: 45svh; max-height: none; }
   .about__text { gap: 14px; }
   .about__text > p:not(.lead) { font-size: 0.9375rem; }
 }
@@ -453,9 +456,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 
 /* Brand carousel */
 .brands__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: clamp(16px, 3vh, 28px);
 }
 .brands__title {
@@ -465,20 +465,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   text-transform: uppercase;
   color: var(--muted);
 }
-.brands__pause {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0 16px;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--ink);
-  cursor: pointer;
-}
-.brands__pause:hover { border-color: var(--ink); }
 
 .marquee {
   overflow: hidden;
@@ -491,8 +477,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   animation: marquee 45s linear infinite;
 }
 .marquee:hover .marquee__track,
-.marquee:focus-within .marquee__track,
-.marquee.is-paused .marquee__track { animation-play-state: paused; }
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -543,12 +528,35 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 .project-group { margin-top: clamp(40px, 7vh, 72px); }
-.project-group__title {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 700;
+.project-group__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
+.project-group__title {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+}
+
+/* Arrow buttons only appear on mobile, where the videos don't all fit */
+.slider-nav { display: none; gap: 8px; }
+.slider-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+.slider-btn:hover:not(:disabled) { background: var(--ink); color: var(--bg); }
+.slider-btn:disabled { opacity: 0.35; cursor: default; }
 
 .projects {
   margin-top: 24px;
@@ -578,10 +586,13 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 @media (max-width: 767px) {
+  .slider-nav { display: flex; }
   .projects {
     display: flex;
     gap: 16px;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     margin: 16px calc(var(--gutter) * -1) 0;
     padding: 0 var(--gutter) 8px;
@@ -591,7 +602,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   .projects::-webkit-scrollbar { display: none; }
   .project { scroll-snap-align: start; flex: 0 0 auto; }
   .video-placeholder,
-  .project__video { width: 58vw; }
+  .project__video { width: 62vw; }
 }
 
 /* ---------- Section 4: Contact ---------- */
@@ -647,6 +658,14 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 .palette-switcher button[aria-pressed="true"] { background: #fff; color: #111; }
 .palette-switcher button:focus-visible { outline-color: #fff; }
+
+/* ==========================================================
+   Mobile: no vertical scroll snapping — the page scrolls freely
+   ========================================================== */
+@media (max-width: 767px) {
+  html { scroll-snap-type: none; }
+  .section { scroll-snap-align: none; }
+}
 
 /* ==========================================================
    Short screens (landscape phones): let sections grow freely

@@ -101,7 +101,6 @@
       <div class="brands" aria-labelledby="brands-title">
         <div class="container brands__head">
           <h3 class="brands__title" id="brands-title">Brands I've worked with</h3>
-          <button class="brands__pause" type="button" aria-pressed="false">Pause</button>
         </div>
         <div class="marquee">
           <ul class="marquee__track">
@@ -133,8 +132,14 @@
 
         <!-- ---------- Category: Travel ---------- -->
         <div class="project-group" aria-labelledby="travel-title">
-          <h3 class="project-group__title" id="travel-title">Travel</h3>
-          <ul class="projects">
+          <div class="project-group__head">
+            <h3 class="project-group__title" id="travel-title">Travel</h3>
+            <div class="slider-nav">
+              <button class="slider-btn" type="button" data-dir="-1" aria-controls="travel-title-list" aria-label="Previous Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="slider-btn" type="button" data-dir="1" aria-controls="travel-title-list" aria-label="Next Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+          <ul class="projects" id="travel-title-list">
             <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 -->
               <div class="video-placeholder" role="img" aria-label="Travel video placeholder 1"><span aria-hidden="true">Travel 1<br>9:16</span></div>
             </li>
@@ -149,8 +154,14 @@
 
         <!-- ---------- Category: Lifestyle ---------- -->
         <div class="project-group" aria-labelledby="lifestyle-title">
-          <h3 class="project-group__title" id="lifestyle-title">Lifestyle</h3>
-          <ul class="projects">
+          <div class="project-group__head">
+            <h3 class="project-group__title" id="lifestyle-title">Lifestyle</h3>
+            <div class="slider-nav">
+              <button class="slider-btn" type="button" data-dir="-1" aria-controls="lifestyle-title-list" aria-label="Previous Lifestyle video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="slider-btn" type="button" data-dir="1" aria-controls="lifestyle-title-list" aria-label="Next Lifestyle video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+          <ul class="projects" id="lifestyle-title-list">
             <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 1 -->
               <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 1"><span aria-hidden="true">Lifestyle 1<br>9:16</span></div>
             </li>
@@ -165,8 +176,14 @@
 
         <!-- ---------- Category: Fashion and Beauty ---------- -->
         <div class="project-group" aria-labelledby="fashion-title">
-          <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
-          <ul class="projects">
+          <div class="project-group__head">
+            <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
+            <div class="slider-nav">
+              <button class="slider-btn" type="button" data-dir="-1" aria-controls="fashion-title-list" aria-label="Previous Fashion and Beauty video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="slider-btn" type="button" data-dir="1" aria-controls="fashion-title-list" aria-label="Next Fashion and Beauty video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+          <ul class="projects" id="fashion-title-list">
             <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 1 -->
               <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 1"><span aria-hidden="true">Fashion &amp; Beauty 1<br>9:16</span></div>
             </li>
