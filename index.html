@@ -1,16 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-palette="1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Caitlin — Content Creator Portfolio</title>
-  <meta name="description" content="Caitlin's portfolio: about, rates, results, projects and contact.">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Caitlin's portfolio: about, results, projects and contact.">
+  <meta name="theme-color" content="#fcf3d3">
 
   <!-- Clash Display (headings) via Fontshare. Body text uses Arial. -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <!-- TEMP: apply ?palette=N before first paint so the page doesn't flash the default palette -->
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search).get('palette');
+      if (p === '1' || p === '2' || p === '3') document.documentElement.dataset.palette = p;
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +25,6 @@
   <!-- ============ NAVBAR ============ -->
   <header class="site-header">
     <nav class="nav" aria-label="Main">
-      <a class="nav__brand" href="#about">Caitlin</a>
-
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="visually-hidden">Open menu</span>
         <span class="nav__toggle-bar" aria-hidden="true"></span>
@@ -29,7 +34,6 @@
 
       <ul class="nav__menu" id="nav-menu">
         <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#rates">Rates</a></li>
         <li><a class="nav__link" href="#results">Results</a></li>
         <li><a class="nav__link" href="#projects">Projects</a></li>
         <li><a class="nav__link" href="#contact">Contact me</a></li>
@@ -43,7 +47,6 @@
     <section class="section section--about" id="about" aria-labelledby="about-title">
       <div class="container about">
         <div class="about__text">
-          <p class="eyebrow">Content creator · Singapore</p>
           <h1 class="title" id="about-title">Hi, I'm Caitlin.</h1>
           <!-- TEMP: placeholder about-me copy — replace with your own -->
           <p class="lead">
@@ -65,47 +68,7 @@
       </div>
     </section>
 
-    <!-- ============ SECTION 2: RATES ============ -->
-    <section class="section section--rates" id="rates" aria-labelledby="rates-title">
-      <div class="container">
-        <h2 class="section-title" id="rates-title">Rates</h2>
-        <p class="section-intro">Starting prices. Every brief is different, so get in touch for a tailored package.</p>
-
-        <!-- TEMP: placeholder rates — replace with your real pricing -->
-        <ul class="rates">
-          <li class="rate-card">
-            <h3 class="rate-card__name">Instagram Story</h3>
-            <p class="rate-card__price">S$300</p>
-            <ul class="rate-card__list">
-              <li>3-frame story set</li>
-              <li>Link sticker</li>
-              <li>24h live</li>
-            </ul>
-          </li>
-          <li class="rate-card rate-card--featured">
-            <p class="rate-card__tag">Most popular</p>
-            <h3 class="rate-card__name">Reel / TikTok</h3>
-            <p class="rate-card__price">S$800</p>
-            <ul class="rate-card__list">
-              <li>30–60s vertical video</li>
-              <li>1 round of revisions</li>
-              <li>Raw footage on request</li>
-            </ul>
-          </li>
-          <li class="rate-card">
-            <h3 class="rate-card__name">Campaign bundle</h3>
-            <p class="rate-card__price">S$1,800</p>
-            <ul class="rate-card__list">
-              <li>2 Reels + 3 Stories</li>
-              <li>30-day usage rights</li>
-              <li>Performance report</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ SECTION 3: RESULTS ============ -->
+    <!-- ============ SECTION 2: RESULTS ============ -->
     <section class="section section--results" id="results" aria-labelledby="results-title">
       <div class="container">
         <h2 class="section-title" id="results-title">Results</h2>
@@ -132,7 +95,7 @@
       </div>
 
       <!-- Brand carousel: infinite, right → left. The list is duplicated in JS for a seamless loop.
-           Logos are currently black text wordmarks. To use real logo files, replace each
+           Logos are currently text wordmarks in the darkest palette colour. To use real logo files, replace each
            <span class="logo__mark">…</span> with <img src="assets/logos/samsung.svg" alt="Samsung">
            and keep the .logo wrapper so spacing stays even. -->
       <div class="brands" aria-labelledby="brands-title">
@@ -156,46 +119,69 @@
       </div>
     </section>
 
-    <!-- ============ SECTION 4: PROJECTS ============ -->
+    <!-- ============ SECTION 3: PROJECTS (scrolls freely — no snapping inside this section) ============ -->
+    <!--
+      ===== TEMP VIDEO PLACEHOLDERS (9 total: 3 per category) =====
+      Each <div class="video-placeholder">…</div> is an iPhone portrait (9:16) placeholder.
+      To add a video, replace the whole <div class="video-placeholder">…</div> with:
+        <video class="project__video" src="assets/videos/travel-1.mp4" poster="assets/videos/travel-1.jpg"
+               controls playsinline preload="metadata" aria-label="Travel project 1: describe the video"></video>
+    -->
     <section class="section section--projects" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <h2 class="section-title" id="projects-title">Projects</h2>
-        <p class="section-intro">A few recent pieces. Swipe sideways on mobile.</p>
 
-        <ul class="projects">
-          <!--
-            ===== TEMP VIDEO PLACEHOLDER (1 of 3) =====
-            iPhone portrait size (9:16). To add your video, replace the <div class="video-placeholder">…</div> with:
-              <video class="project__video" src="assets/videos/project-1.mp4" poster="assets/videos/project-1.jpg"
-                     controls playsinline preload="metadata" aria-label="Project 1: describe the video"></video>
-          -->
-          <li class="project">
-            <div class="video-placeholder" role="img" aria-label="Video placeholder 1">
-              <span aria-hidden="true">Video 1<br>9:16</span>
-            </div>
-            <p class="project__name">Project one</p>
-          </li>
+        <!-- ---------- Category: Travel ---------- -->
+        <div class="project-group" aria-labelledby="travel-title">
+          <h3 class="project-group__title" id="travel-title">Travel</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 1"><span aria-hidden="true">Travel 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 2 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 2"><span aria-hidden="true">Travel 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 3 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 3"><span aria-hidden="true">Travel 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
 
-          <!-- ===== TEMP VIDEO PLACEHOLDER (2 of 3) — replace the same way as above ===== -->
-          <li class="project">
-            <div class="video-placeholder" role="img" aria-label="Video placeholder 2">
-              <span aria-hidden="true">Video 2<br>9:16</span>
-            </div>
-            <p class="project__name">Project two</p>
-          </li>
+        <!-- ---------- Category: Lifestyle ---------- -->
+        <div class="project-group" aria-labelledby="lifestyle-title">
+          <h3 class="project-group__title" id="lifestyle-title">Lifestyle</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 1 -->
+              <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 1"><span aria-hidden="true">Lifestyle 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 2 -->
+              <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 2"><span aria-hidden="true">Lifestyle 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 3 -->
+              <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 3"><span aria-hidden="true">Lifestyle 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
 
-          <!-- ===== TEMP VIDEO PLACEHOLDER (3 of 3) — replace the same way as above ===== -->
-          <li class="project">
-            <div class="video-placeholder" role="img" aria-label="Video placeholder 3">
-              <span aria-hidden="true">Video 3<br>9:16</span>
-            </div>
-            <p class="project__name">Project three</p>
-          </li>
-        </ul>
+        <!-- ---------- Category: Fashion and Beauty ---------- -->
+        <div class="project-group" aria-labelledby="fashion-title">
+          <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 1 -->
+              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 1"><span aria-hidden="true">Fashion &amp; Beauty 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 2 -->
+              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 2"><span aria-hidden="true">Fashion &amp; Beauty 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 3 -->
+              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 3"><span aria-hidden="true">Fashion &amp; Beauty 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ============ SECTION 5: CONTACT ============ -->
+    <!-- ============ SECTION 4: CONTACT ============ -->
     <section class="section section--contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact">
         <h2 class="title" id="contact-title">Let's make something together.</h2>
@@ -211,6 +197,16 @@
     </section>
 
   </main>
+
+  <!-- TEMP: colour palette switcher for comparing palettes. Delete this block (and the
+       "Palette switcher" part of script.js) once a palette is chosen.
+       You can also link straight to one: ?palette=1, ?palette=2 or ?palette=3 -->
+  <div class="palette-switcher" role="group" aria-label="Colour palette">
+    <span class="palette-switcher__label" aria-hidden="true">Palette</span>
+    <button type="button" data-set-palette="1" aria-label="Palette 1" aria-pressed="true">1</button>
+    <button type="button" data-set-palette="2" aria-label="Palette 2" aria-pressed="false">2</button>
+    <button type="button" data-set-palette="3" aria-label="Palette 3" aria-pressed="false">3</button>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
