@@ -64,29 +64,28 @@
     track.appendChild(clone);
   });
 
-  /* ---------- Project sliders (mobile): arrow buttons scroll one video at a time ---------- */
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  document.querySelectorAll('.project-group').forEach((group) => {
-    const list = group.querySelector('.projects');
-    const [prev, next] = group.querySelectorAll('.slider-btn');
+  /* ---------- Navbar takes on the colours of the section beneath it ---------- */
+  const header = document.querySelector('.site-header');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const navVars = ['--bg', '--ink', '--line', '--accent'];
+  let navSection = null;
 
-    const step = () => {
-      const card = list.querySelector('.project');
-      return card.offsetWidth + parseFloat(getComputedStyle(list).columnGap || 0);
-    };
-    const update = () => {
-      const max = list.scrollWidth - list.clientWidth - 2;
-      prev.disabled = list.scrollLeft <= 2;
-      next.disabled = list.scrollLeft >= max;
-    };
+  const updateNavTheme = () => {
+    const y = header.offsetHeight / 2;
+    const section = sections.find((s) => {
+      const r = s.getBoundingClientRect();
+      return r.top <= y && r.bottom > y;
+    }) || sections[0];
+    if (section === navSection) return;
+    navSection = section;
+    const styles = getComputedStyle(section);
+    navVars.forEach((v) => header.style.setProperty(v, styles.getPropertyValue(v).trim()));
+    themeColor.content = styles.getPropertyValue('--bg').trim();
+  };
 
-    [prev, next].forEach((btn) => btn.addEventListener('click', () => {
-      list.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
-    }));
-    list.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  });
+  window.addEventListener('scroll', updateNavTheme, { passive: true });
+  window.addEventListener('resize', updateNavTheme);
+  updateNavTheme();
 
   /* ---------- Footer year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();

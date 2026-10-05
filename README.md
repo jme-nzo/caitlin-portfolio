@@ -8,7 +8,9 @@ Plain HTML, CSS and JavaScript — no build step. Open `index.html` or serve the
 
 - `index.html` — page structure and content
 - `styles.css` — design tokens, layout, responsive rules
-- `script.js` — mobile menu, active nav link, brand carousel loop and pause button
+- `script.js` — mobile menu, active nav link, navbar colour that follows the section, brand carousel loop
+- `assets/fonts/` — self-hosted Clash Display (headings and navbar)
+- `assets/logos/` — brand logos for the carousel
 
 ## Placeholders to replace
 
@@ -20,7 +22,7 @@ Search `TEMP` in `index.html` to find every one.
 | Photo | Section 1, `.about__photo` | Swap the `<figure>` for `<img src="assets/caitlin.jpg" alt="Portrait of Caitlin">` |
 | Results | Section 2 (`#results`) | Edit the four stats |
 | Brand logos | Section 2, `.marquee__track` | Logo PNGs are in `assets/logos/` (black on transparent). To add or replace one, use a trimmed PNG and set its `--s` to `1 / √(width ÷ height)` so it matches the others' size. |
-| **Project videos** | Section 3, `.video-placeholder` — 9 total: 3 each under Lifestyle, Travel, Fashion and Beauty (each marked `TEMP VIDEO PLACEHOLDER`) | Replace each placeholder `<div>` with `<video class="project__video" src="assets/videos/travel-1.mp4" poster="assets/videos/travel-1.jpg" controls playsinline preload="metadata" aria-label="Describe the video"></video>`. Use 9:16 (iPhone portrait) footage. |
+| **Project videos** | Section 3, `.video-placeholder` — 15 total: 3 each under Lifestyle, Fitness, F&B, Travel, Fashion and Beauty (each marked `TEMP VIDEO PLACEHOLDER`) | Replace each placeholder `<div>` with `<video class="project__video" src="assets/videos/travel-1.mp4" poster="assets/videos/travel-1.jpg" controls playsinline preload="metadata" aria-label="Describe the video"></video>`. Use 9:16 (iPhone portrait) footage. |
 | Email | Section 4 (`#contact`) | Change `hello@example.com` in both `mailto:` links and the visible text |
 
 ## Colour palette

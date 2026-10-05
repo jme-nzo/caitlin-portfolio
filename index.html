@@ -7,9 +7,8 @@
   <meta name="description" content="Caitlin's portfolio: about, results, projects and contact.">
   <meta name="theme-color" content="#f6f1de">
 
-  <!-- Clash Display (headings) via Fontshare. Body text uses Arial. -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap">
+  <!-- Clash Display (headings + navbar) is self-hosted in assets/fonts/. Body text uses Arial. -->
+  <link rel="preload" href="assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -113,11 +112,11 @@
 
     <!-- ============ SECTION 3: PROJECTS (scrolls freely — no snapping inside this section) ============ -->
     <!--
-      ===== TEMP VIDEO PLACEHOLDERS (9 total: 3 per category) =====
+      ===== TEMP VIDEO PLACEHOLDERS (15 total: 3 per category) =====
       Each <div class="video-placeholder">…</div> is an iPhone portrait (9:16) placeholder.
       To add a video, replace the whole <div class="video-placeholder">…</div> with:
-        <video class="project__video" src="assets/videos/travel-1.mp4" poster="assets/videos/travel-1.jpg"
-               controls playsinline preload="metadata" aria-label="Travel project 1: describe the video"></video>
+        <video class="project__video" src="assets/videos/lifestyle-1.mp4" poster="assets/videos/lifestyle-1.jpg"
+               controls playsinline preload="metadata" aria-label="Lifestyle: describe the video"></video>
     -->
     <section class="section section--projects" id="projects" aria-labelledby="projects-title">
       <div class="container">
@@ -125,43 +124,63 @@
 
         <!-- ---------- Category: Lifestyle ---------- -->
         <div class="project-group" aria-labelledby="lifestyle-title">
-          <div class="project-group__head">
-            <h3 class="project-group__title" id="lifestyle-title">Lifestyle</h3>
-            <div class="slider-nav">
-              <button class="slider-btn" type="button" data-dir="-1" aria-controls="lifestyle-title-list" aria-label="Previous Lifestyle video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <button class="slider-btn" type="button" data-dir="1" aria-controls="lifestyle-title-list" aria-label="Next Lifestyle video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-          </div>
-          <ul class="projects" id="lifestyle-title-list">
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 1 -->
+          <h3 class="project-group__title" id="lifestyle-title">Lifestyle</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 1 → assets/videos/lifestyle-1.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 1"><span aria-hidden="true">Lifestyle 1<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 2 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 2 → assets/videos/lifestyle-2.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 2"><span aria-hidden="true">Lifestyle 2<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 3 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 3 → assets/videos/lifestyle-3.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 3"><span aria-hidden="true">Lifestyle 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ---------- Category: Fitness ---------- -->
+        <div class="project-group" aria-labelledby="fitness-title">
+          <h3 class="project-group__title" id="fitness-title">Fitness</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fitness 1 → assets/videos/fitness-1.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="Fitness video placeholder 1"><span aria-hidden="true">Fitness 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fitness 2 → assets/videos/fitness-2.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="Fitness video placeholder 2"><span aria-hidden="true">Fitness 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fitness 3 → assets/videos/fitness-3.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="Fitness video placeholder 3"><span aria-hidden="true">Fitness 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ---------- Category: F&B ---------- -->
+        <div class="project-group" aria-labelledby="fnb-title">
+          <h3 class="project-group__title" id="fnb-title">F&amp;B</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: F&B 1 → assets/videos/fnb-1.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="F and B video placeholder 1"><span aria-hidden="true">F&amp;B 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: F&B 2 → assets/videos/fnb-2.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="F and B video placeholder 2"><span aria-hidden="true">F&amp;B 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: F&B 3 → assets/videos/fnb-3.mp4 -->
+              <div class="video-placeholder" role="img" aria-label="F and B video placeholder 3"><span aria-hidden="true">F&amp;B 3<br>9:16</span></div>
             </li>
           </ul>
         </div>
 
         <!-- ---------- Category: Travel ---------- -->
         <div class="project-group" aria-labelledby="travel-title">
-          <div class="project-group__head">
-            <h3 class="project-group__title" id="travel-title">Travel</h3>
-            <div class="slider-nav">
-              <button class="slider-btn" type="button" data-dir="-1" aria-controls="travel-title-list" aria-label="Previous Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <button class="slider-btn" type="button" data-dir="1" aria-controls="travel-title-list" aria-label="Next Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-          </div>
-          <ul class="projects" id="travel-title-list">
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 -->
+          <h3 class="project-group__title" id="travel-title">Travel</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 → assets/videos/travel-1.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Travel video placeholder 1"><span aria-hidden="true">Travel 1<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 2 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 2 → assets/videos/travel-2.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Travel video placeholder 2"><span aria-hidden="true">Travel 2<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 3 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 3 → assets/videos/travel-3.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Travel video placeholder 3"><span aria-hidden="true">Travel 3<br>9:16</span></div>
             </li>
           </ul>
@@ -169,21 +188,15 @@
 
         <!-- ---------- Category: Fashion and Beauty ---------- -->
         <div class="project-group" aria-labelledby="fashion-title">
-          <div class="project-group__head">
-            <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
-            <div class="slider-nav">
-              <button class="slider-btn" type="button" data-dir="-1" aria-controls="fashion-title-list" aria-label="Previous Fashion and Beauty video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <button class="slider-btn" type="button" data-dir="1" aria-controls="fashion-title-list" aria-label="Next Fashion and Beauty video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-          </div>
-          <ul class="projects" id="fashion-title-list">
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 1 -->
+          <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
+          <ul class="projects">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 1 → assets/videos/fashion-1.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 1"><span aria-hidden="true">Fashion &amp; Beauty 1<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 2 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 2 → assets/videos/fashion-2.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 2"><span aria-hidden="true">Fashion &amp; Beauty 2<br>9:16</span></div>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 3 -->
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 3 → assets/videos/fashion-3.mp4 -->
               <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 3"><span aria-hidden="true">Fashion &amp; Beauty 3<br>9:16</span></div>
             </li>
           </ul>

@@ -1,3 +1,12 @@
+/* Clash Display by Indian Type Foundry (Fontshare, ITF Free Font License) */
+@font-face {
+  font-family: "Clash Display";
+  src: url("assets/fonts/ClashDisplay-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================
    Design tokens
    ========================================================== */
@@ -175,6 +184,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   border-bottom: 1px solid var(--line);
   padding-top: env(safe-area-inset-top);
   color: var(--ink);
+  transition: background-color 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 
 .nav {
@@ -429,35 +439,12 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 .project-group { margin-top: clamp(40px, 7vh, 72px); }
-.project-group__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-}
 .project-group__title {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
-
-/* Arrow buttons only appear on mobile, where the videos don't all fit */
-.slider-nav { display: none; gap: 8px; }
-.slider-btn {
-  display: grid;
-  place-items: center;
-  width: 44px; height: 44px;
-  padding: 0;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-  transition: opacity 0.2s, background-color 0.2s;
-}
-.slider-btn:hover:not(:disabled) { background: var(--ink); color: var(--bg); }
-.slider-btn:disabled { opacity: 0.35; cursor: default; }
 
 .projects {
   margin-top: 24px;
@@ -487,7 +474,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 @media (max-width: 767px) {
-  .slider-nav { display: flex; }
   .projects {
     display: flex;
     gap: 16px;
