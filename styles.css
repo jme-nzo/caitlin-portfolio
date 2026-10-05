@@ -500,15 +500,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   user-select: none;
   -webkit-user-drag: none;
 }
-.logo__mark {   /* text fallback for logos without a file yet */
-  color: #000;
-  font-size: calc(var(--logo-k) * var(--s));
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  white-space: nowrap;
-  user-select: none;
-}
 
 /* ---------- Section 3: Projects ----------
    Taller than the screen, so it scrolls freely: the page snaps to its top and
