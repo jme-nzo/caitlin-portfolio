@@ -4,6 +4,7 @@
   const toggleLabel = toggle.querySelector('.visually-hidden');
   const links = [...document.querySelectorAll('.nav__link')];
   const sections = [...document.querySelectorAll('main .section')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- Mobile menu ---------- */
   const setMenu = (open) => {
@@ -18,6 +19,18 @@
   });
 
   links.forEach((link) => link.addEventListener('click', () => setMenu(false)));
+
+  // In-page links scroll to their section without adding "#about" etc. to the address
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      target.setAttribute('tabindex', '-1');      // move keyboard focus to the section too
+      target.focus({ preventScroll: true });
+    });
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) {
@@ -75,7 +88,6 @@
 
   /* ---------- Project videos: autoplay (muted) while on screen, with a sound toggle ---------- */
   const videos = [...document.querySelectorAll('.project__video')];
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const ICON_MUTED = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l5 6M22 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
   const ICON_SOUND = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
@@ -118,6 +130,21 @@
     });
   }, { threshold: 0.6 });
   videos.forEach((v) => videoObserver.observe(v));
+
+  /* ---------- Project rows (mobile): faint arrows show which way there's more to swipe ---------- */
+  document.querySelectorAll('.projects-scroller').forEach((scroller) => {
+    const list = scroller.querySelector('.projects');
+    const prev = scroller.querySelector('.swipe-hint--prev');
+    const next = scroller.querySelector('.swipe-hint--next');
+    const update = () => {
+      const max = list.scrollWidth - list.clientWidth;
+      prev.classList.toggle('is-visible', list.scrollLeft > 8);
+      next.classList.toggle('is-visible', list.scrollLeft < max - 8);
+    };
+    list.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
 
   /* ---------- Navbar takes on the colours of the section beneath it ---------- */
   const header = document.querySelector('.site-header');
