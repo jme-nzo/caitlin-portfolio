@@ -1,23 +1,16 @@
 <!doctype html>
-<html lang="en" data-palette="1">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Caitlin — Content Creator Portfolio</title>
   <meta name="description" content="Caitlin's portfolio: about, results, projects and contact.">
-  <meta name="theme-color" content="#fcf3d3">
+  <meta name="theme-color" content="#f6f1de">
 
   <!-- Clash Display (headings) via Fontshare. Body text uses Arial. -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <!-- TEMP: apply ?palette=N before first paint so the page doesn't flash the default palette -->
-  <script>
-    (function () {
-      var p = new URLSearchParams(location.search).get('palette');
-      if (p === '1' || p === '2' || p === '3') document.documentElement.dataset.palette = p;
-    })();
-  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -100,7 +93,7 @@
            To add a logo: drop a trimmed PNG in assets/logos/ and set --s with that formula. -->
       <div class="brands" aria-labelledby="brands-title">
         <div class="container brands__head">
-          <h3 class="brands__title" id="brands-title">Brands I've worked with</h3>
+          <h3 class="section-title brands__title" id="brands-title">Brands I've worked with</h3>
         </div>
         <div class="marquee">
           <ul class="marquee__track">
@@ -130,28 +123,6 @@
       <div class="container">
         <h2 class="section-title" id="projects-title">Projects</h2>
 
-        <!-- ---------- Category: Travel ---------- -->
-        <div class="project-group" aria-labelledby="travel-title">
-          <div class="project-group__head">
-            <h3 class="project-group__title" id="travel-title">Travel</h3>
-            <div class="slider-nav">
-              <button class="slider-btn" type="button" data-dir="-1" aria-controls="travel-title-list" aria-label="Previous Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <button class="slider-btn" type="button" data-dir="1" aria-controls="travel-title-list" aria-label="Next Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-          </div>
-          <ul class="projects" id="travel-title-list">
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 -->
-              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 1"><span aria-hidden="true">Travel 1<br>9:16</span></div>
-            </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 2 -->
-              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 2"><span aria-hidden="true">Travel 2<br>9:16</span></div>
-            </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 3 -->
-              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 3"><span aria-hidden="true">Travel 3<br>9:16</span></div>
-            </li>
-          </ul>
-        </div>
-
         <!-- ---------- Category: Lifestyle ---------- -->
         <div class="project-group" aria-labelledby="lifestyle-title">
           <div class="project-group__head">
@@ -170,6 +141,28 @@
             </li>
             <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Lifestyle 3 -->
               <div class="video-placeholder" role="img" aria-label="Lifestyle video placeholder 3"><span aria-hidden="true">Lifestyle 3<br>9:16</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ---------- Category: Travel ---------- -->
+        <div class="project-group" aria-labelledby="travel-title">
+          <div class="project-group__head">
+            <h3 class="project-group__title" id="travel-title">Travel</h3>
+            <div class="slider-nav">
+              <button class="slider-btn" type="button" data-dir="-1" aria-controls="travel-title-list" aria-label="Previous Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="slider-btn" type="button" data-dir="1" aria-controls="travel-title-list" aria-label="Next Travel video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+          <ul class="projects" id="travel-title-list">
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 1 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 1"><span aria-hidden="true">Travel 1<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 2 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 2"><span aria-hidden="true">Travel 2<br>9:16</span></div>
+            </li>
+            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Travel 3 -->
+              <div class="video-placeholder" role="img" aria-label="Travel video placeholder 3"><span aria-hidden="true">Travel 3<br>9:16</span></div>
             </li>
           </ul>
         </div>
@@ -214,16 +207,6 @@
     </section>
 
   </main>
-
-  <!-- TEMP: colour palette switcher for comparing palettes. Delete this block (and the
-       "Palette switcher" part of script.js) once a palette is chosen.
-       You can also link straight to one: ?palette=1, ?palette=2 or ?palette=3 -->
-  <div class="palette-switcher" role="group" aria-label="Colour palette">
-    <span class="palette-switcher__label" aria-hidden="true">Palette</span>
-    <button type="button" data-set-palette="1" aria-label="Palette 1" aria-pressed="true">1</button>
-    <button type="button" data-set-palette="2" aria-label="Palette 2" aria-pressed="false">2</button>
-    <button type="button" data-set-palette="3" aria-label="Palette 3" aria-pressed="false">3</button>
-  </div>
 
   <script src="script.js" defer></script>
 </body>

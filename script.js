@@ -88,20 +88,6 @@
     update();
   });
 
-  /* ---------- TEMP: Palette switcher (remove once a palette is chosen) ---------- */
-  const themeColor = document.querySelector('meta[name="theme-color"]');
-  const paletteButtons = document.querySelectorAll('[data-set-palette]');
-  const applyPalette = (p) => {
-    document.documentElement.dataset.palette = p;
-    paletteButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.setPalette === p)));
-    themeColor.content = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
-    const url = new URL(location.href);
-    url.searchParams.set('palette', p);
-    history.replaceState(null, '', url);
-  };
-  paletteButtons.forEach((b) => b.addEventListener('click', () => applyPalette(b.dataset.setPalette)));
-  applyPalette(document.documentElement.dataset.palette || '1');
-
   /* ---------- Footer year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

@@ -18,91 +18,14 @@
 }
 
 /* ==========================================================
-   Colour palettes (60 / 30 / 10)
-   Every section reads the same variables; palettes and sections override them.
-     --bg / --ink / --muted / --line   section background, text, secondary text, dividers
-     --title                           headings
-     --accent                          nav underline and small highlights
-     --btn-bg / --btn-ink / --btn-hover  call-to-action buttons
-     --placeholder / --placeholder-ink   temporary photo & video boxes
+   Colour palette (60 / 30 / 10): ivory · sand · dusty blue · crimson
+     60% ivory      About, Projects, navbar
+     30% sand       Results  ·  dusty blue  Contact
+     10% crimson    headings, buttons, nav underline
+   Every section reads these variables; sections override them below.
    All text pairs meet WCAG AA contrast (4.5:1 body, 3:1 large text / UI).
    ========================================================== */
-
-/* ---------- Palette 1: cream · sky blue · lavender · mauve ----------
-   60% cream (About, Projects, navbar)
-   30% sky blue (Results) + lavender (Contact)
-   10% mauve (buttons, nav underline)
-   Button mauve is deepened slightly (#7d5a5b) so cream button text passes 4.5:1. */
-:root,
-:root[data-palette="1"] {
-  --bg: #fcf3d3;
-  --ink: #2e2224;
-  --muted: #5a4648;
-  --line: rgba(46, 34, 36, 0.18);
-  --title: #2e2224;
-  --accent: #946d6e;
-  --btn-bg: #7d5a5b;
-  --btn-ink: #fcf3d3;
-  --btn-hover: #694849;
-  --placeholder: #b3cadd;
-  --placeholder-ink: #2e2224;
-}
-:root[data-palette="1"] .section--results {
-  --bg: #b3cadd;
-  --muted: #3f3133;
-  --line: rgba(46, 34, 36, 0.25);
-}
-:root[data-palette="1"] .section--contact {
-  --bg: #a38fb7;
-  --muted: #2e2224;
-  --line: rgba(46, 34, 36, 0.3);
-  --title: #2e2224;
-}
-
-/* ---------- Palette 2: deep red · maroon · sage · cream ----------
-   60% cream (Results, Projects, navbar)
-   30% deep red (About) + maroon (Contact)
-   10% sage (photo/video placeholders, dividers, nav underline) */
-:root[data-palette="2"] {
-  --bg: #efead8;
-  --ink: #2d0100;
-  --muted: #5a3a36;
-  --line: rgba(118, 124, 111, 0.55);
-  --title: #6b0908;
-  --accent: #767c6f;
-  --btn-bg: #6b0908;
-  --btn-ink: #efead8;
-  --btn-hover: #2d0100;
-  --placeholder: #b4b8aa;
-  --placeholder-ink: #2d0100;
-}
-:root[data-palette="2"] .section--about {
-  --bg: #6b0908;
-  --ink: #efead8;
-  --muted: #e6dcc6;
-  --title: #efead8;
-  --btn-bg: #efead8;
-  --btn-ink: #6b0908;
-  --btn-hover: #ffffff;
-  --placeholder: #656b5f;   /* sage, deepened so the white label passes 4.5:1 */
-  --placeholder-ink: #ffffff;
-}
-:root[data-palette="2"] .section--contact {
-  --bg: #2d0100;
-  --ink: #efead8;
-  --muted: #d4cbb4;
-  --line: rgba(239, 234, 216, 0.2);
-  --title: #efead8;
-  --btn-bg: #efead8;
-  --btn-ink: #2d0100;
-  --btn-hover: #ffffff;
-}
-
-/* ---------- Palette 3: ivory · sand · dusty blue · crimson ----------
-   60% ivory (About, Projects, navbar)
-   30% sand (Results) + dusty blue (Contact)
-   10% crimson (headings, buttons, nav underline) */
-:root[data-palette="3"] {
+:root {
   --bg: #f6f1de;
   --ink: #2b0a0c;
   --muted: #5a3b3c;
@@ -115,12 +38,12 @@
   --placeholder: #aec4d3;
   --placeholder-ink: #2b0a0c;
 }
-:root[data-palette="3"] .section--results {
+.section--results {
   --bg: #e3d1ae;
   --muted: #4a2f30;
   --line: rgba(43, 10, 12, 0.22);
 }
-:root[data-palette="3"] .section--contact {
+.section--contact {
   --bg: #aec4d3;
   --muted: #3f2a2b;
   --line: rgba(43, 10, 12, 0.22);
@@ -276,9 +199,11 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   align-items: center;
   min-height: 44px;
   padding: 0 8px;
+  font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
 }
 .nav__link::after {
@@ -458,13 +383,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 .brands__head {
   margin-bottom: clamp(16px, 3vh, 28px);
 }
-.brands__title {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
 
 .marquee {
   overflow: hidden;
@@ -609,38 +527,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   font-size: 0.875rem;
   color: var(--muted);
 }
-
-/* ==========================================================
-   TEMP: palette switcher (remove once a palette is chosen)
-   ========================================================== */
-.palette-switcher {
-  position: fixed;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 4px 4px 14px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-}
-.palette-switcher__label { margin-right: 4px; }
-.palette-switcher button {
-  width: 44px; height: 44px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: #fff;
-  font: inherit;
-  cursor: pointer;
-}
-.palette-switcher button[aria-pressed="true"] { background: #fff; color: #111; }
-.palette-switcher button:focus-visible { outline-color: #fff; }
 
 /* ==========================================================
    Mobile: no vertical scroll snapping — the page scrolls freely
