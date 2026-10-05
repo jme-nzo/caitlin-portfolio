@@ -340,6 +340,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   aspect-ratio: 4 / 5;
   width: 100%;
   max-height: 68svh;
+  object-fit: cover;          /* a real photo fills the frame without stretching */
   border-radius: var(--radius);
   background: var(--placeholder);
   color: var(--placeholder-ink);
