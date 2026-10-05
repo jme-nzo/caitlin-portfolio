@@ -333,14 +333,17 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   align-items: center;
 }
 .about__text { display: grid; gap: 20px; justify-items: start; }
-.about__text > p:not(.lead) { color: var(--muted); max-width: 56ch; }
+.about__text > p { font-size: 1rem; line-height: 1.6; max-width: 56ch; }   /* both paragraphs the same size */
+.about__text > p:not(.lead) { color: var(--muted); }
 .about__text .btn { margin-top: 8px; }
 
 .about__photo {
   aspect-ratio: 4 / 5;
   width: 100%;
   max-height: 68svh;
+  height: auto;
   object-fit: cover;          /* a real photo fills the frame without stretching */
+  object-position: 45% 50%;   /* keep the face centred when cropped */
   border-radius: var(--radius);
   background: var(--placeholder);
   color: var(--placeholder-ink);
@@ -352,10 +355,24 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 @media (max-width: 767px) {
-  .about { grid-template-columns: 1fr; gap: 24px; }
-  .about__photo { order: -1; width: 100%; aspect-ratio: auto; height: 45svh; max-height: none; }
-  .about__text { gap: 14px; }
-  .about__text > p:not(.lead) { font-size: 0.9375rem; }
+  /* Photo sits just under the navbar and shrinks to whatever space the text leaves,
+     so the "Work with me" button is always visible without scrolling */
+  .section--about {
+    justify-content: flex-start;
+    padding-top: calc(var(--nav-h) + 16px);
+    padding-bottom: 24px;
+  }
+  .about { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+  .about__photo {
+    order: -1;
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 160px;
+    max-height: 50svh;
+    aspect-ratio: auto;
+  }
+  .about__text { gap: 12px; }
+  .about__text > p { font-size: 0.9375rem; }
 }
 
 /* ---------- Section 2: Results ---------- */
@@ -403,7 +420,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee 45s linear infinite;
+  animation: marquee 45s linear infinite;   /* duration recalculated in script.js for a steady speed */
 }
 .marquee:hover .marquee__track,
 .marquee:focus-within .marquee__track { animation-play-state: paused; }
@@ -473,12 +490,11 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
     touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     margin: 16px calc(var(--gutter) * -1) 0;
-    padding: 0 var(--gutter) 8px;
-    scroll-padding: 0 var(--gutter);
+    padding: 0 19vw 8px;   /* (100vw − 62vw video) ÷ 2: first and last video sit dead centre */
     scrollbar-width: none;
   }
   .projects::-webkit-scrollbar { display: none; }
-  .project { scroll-snap-align: start; flex: 0 0 auto; }
+  .project { scroll-snap-align: center; flex: 0 0 auto; }
   .project__video { width: 62vw; }
 }
 

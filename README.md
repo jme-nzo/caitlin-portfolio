@@ -23,10 +23,10 @@ Search `TEMP` in `index.html` to find every one.
 | What | Where | How to replace |
 | --- | --- | --- |
 | About-me copy | Section 1 (`#about`) | Edit the paragraphs |
-| Photo | Section 1, `.about__photo` | Swap the `<figure>` for `<img src="assets/caitlin.jpg" alt="Portrait of Caitlin">` |
-| Results | Section 2 (`#results`) | Edit the four stats |
+| ~~Photo~~ | Done (`assets/caitlin.jpg`) | |
+| ~~Results~~ | Done | |
 | Brand logos | Section 2, `.marquee__track` | Logo PNGs are in `assets/logos/` (black on transparent). To add or replace one, use a trimmed PNG and set its `--s` to `1 / √(width ÷ height)` so it matches the others' size. |
-| Email | Section 4 (`#contact`) | Change `hello@example.com` in both `mailto:` links and the visible text |
+| ~~Email~~ | Done | |
 
 ## Colour palette
 

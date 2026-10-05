@@ -64,6 +64,15 @@
     track.appendChild(clone);
   });
 
+  // Same on-screen speed whatever the screen size (px per second); a little quicker on phones
+  const setMarqueeSpeed = () => {
+    const pxPerSecond = window.innerWidth < 768 ? 40 : 42;
+    track.style.animationDuration = `${track.scrollWidth / 2 / pxPerSecond}s`;
+  };
+  setMarqueeSpeed();
+  window.addEventListener('load', setMarqueeSpeed);
+  window.addEventListener('resize', setMarqueeSpeed);
+
   /* ---------- Navbar takes on the colours of the section beneath it ---------- */
   const header = document.querySelector('.site-header');
   const themeColor = document.querySelector('meta[name="theme-color"]');
