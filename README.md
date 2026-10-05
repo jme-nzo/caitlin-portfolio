@@ -14,7 +14,7 @@ Plain HTML, CSS and JavaScript — no build step. Open `index.html` or serve the
 
 ## Project videos
 
-15 videos in `assets/videos/`, named `lifestyle-1.mp4` … `fashion-3.mp4`, each with a `.jpg` cover frame. To swap one, replace the file with a 9:16 H.264 MP4 of the same name (and update its `aria-label` in `index.html`).
+15 videos in `assets/videos/`, named `lifestyle-1.mp4` … `fashion-3.mp4`, each with a `.jpg` cover frame. To swap one, replace the file with a 9:16 H.264 MP4 of the same name (and update its `aria-label` in `index.html`). Videos autoplay muted while on screen and pause when scrolled away; each has a sound button (only one plays sound at a time), and tapping a video pauses or resumes it. Autoplay is skipped for visitors who have reduced motion turned on.
 
 ## Placeholders to replace
 

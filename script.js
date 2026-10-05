@@ -73,6 +73,52 @@
   window.addEventListener('load', setMarqueeSpeed);
   window.addEventListener('resize', setMarqueeSpeed);
 
+  /* ---------- Project videos: autoplay (muted) while on screen, with a sound toggle ---------- */
+  const videos = [...document.querySelectorAll('.project__video')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const ICON_MUTED = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l5 6M22 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  const ICON_SOUND = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+  const setSound = (video, on) => {
+    video.muted = !on;
+    const btn = video.parentElement.querySelector('.sound-btn');
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', `${on ? 'Mute' : 'Unmute'} ${video.getAttribute('aria-label')}`);
+    btn.innerHTML = on ? ICON_SOUND : ICON_MUTED;
+  };
+
+  videos.forEach((video) => {
+    video.muted = true; // muted is required for autoplay on every browser
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'sound-btn';
+    video.after(btn);
+    setSound(video, false);
+
+    btn.addEventListener('click', () => {
+      const turnOn = video.muted;
+      if (turnOn) videos.forEach((v) => v !== video && setSound(v, false)); // only one video with sound at a time
+      setSound(video, turnOn);
+      if (video.paused) video.play().catch(() => {});
+    });
+
+    // Tapping the video itself pauses / resumes it
+    video.addEventListener('click', () => (video.paused ? video.play().catch(() => {}) : video.pause()));
+  });
+
+  // Only videos on screen play, so 15 videos never download or run at once
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (isIntersecting && !reduceMotion.matches) {
+        target.preload = 'auto';
+        target.play().catch(() => {});
+      } else if (!isIntersecting) {
+        target.pause();
+      }
+    });
+  }, { threshold: 0.6 });
+  videos.forEach((v) => videoObserver.observe(v));
+
   /* ---------- Navbar takes on the colours of the section beneath it ---------- */
   const header = document.querySelector('.site-header');
   const themeColor = document.querySelector('meta[name="theme-color"]');

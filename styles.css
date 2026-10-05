@@ -374,6 +374,15 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   .about__text { gap: 12px; }
   .about__text > p { font-size: 0.9375rem; }
 }
+/* Shorter phones (e.g. iPhone SE): tighten spacing so the button still fits */
+@media (max-width: 767px) and (max-height: 720px) {
+  .section--about { padding-top: calc(var(--nav-h) + 12px); padding-bottom: 16px; }
+  .about { gap: 14px; }
+  .about__photo { min-height: 120px; }
+  .about__text { gap: 10px; }
+  .about .title { font-size: 2.25rem; }
+  .about__text .btn { margin-top: 4px; }
+}
 
 /* ---------- Section 2: Results ---------- */
 .section--results { gap: clamp(40px, 9vh, 96px); }
@@ -472,6 +481,30 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   gap: clamp(16px, 4vw, 56px);
 }
 
+.project { position: relative; }
+
+/* Sound toggle on each video (the only visible control) */
+.sound-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(20, 6, 8, 0.6);
+  color: #fff;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s;
+}
+.sound-btn:hover { background: rgba(20, 6, 8, 0.8); }
+.sound-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; box-shadow: 0 0 0 6px var(--ink); }
+
 /* iPhone portrait (9:16) */
 .project__video {
   width: min(300px, 27vw);
@@ -479,6 +512,7 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   border-radius: 24px;
   object-fit: cover;
   background: var(--placeholder);   /* shows while the cover image loads */
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
