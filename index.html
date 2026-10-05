@@ -112,11 +112,9 @@
 
     <!-- ============ SECTION 3: PROJECTS (scrolls freely — no snapping inside this section) ============ -->
     <!--
-      ===== TEMP VIDEO PLACEHOLDERS (3 left: only Fashion and Beauty remains) =====
-      Each <div class="video-placeholder">…</div> is an iPhone portrait (9:16) placeholder.
-      To add a video, replace the whole <div class="video-placeholder">…</div> with:
-        <video class="project__video" src="assets/videos/lifestyle-1.mp4" poster="assets/videos/lifestyle-1.jpg"
-               controls playsinline preload="metadata" aria-label="Lifestyle: describe the video"></video>
+      Videos live in assets/videos/ as <category>-<n>.mp4 with a matching .jpg cover frame.
+      To swap one, replace its file (keep the name) or change src/poster/aria-label on its <video>.
+      Use 9:16 H.264 MP4s; describe each video in aria-label for screen readers.
     -->
     <section class="section section--projects" id="projects" aria-labelledby="projects-title">
       <div class="container">
@@ -202,14 +200,17 @@
         <div class="project-group" aria-labelledby="fashion-title">
           <h3 class="project-group__title" id="fashion-title">Fashion and Beauty</h3>
           <ul class="projects">
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 1 → assets/videos/fashion-1.mp4 -->
-              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 1"><span aria-hidden="true">Fashion &amp; Beauty 1<br>9:16</span></div>
+            <li class="project"><!-- Fashion and Beauty 1 -->
+              <video class="project__video" src="assets/videos/fashion-1.mp4" poster="assets/videos/fashion-1.jpg"
+                     controls playsinline preload="none" aria-label="Fashion and Beauty: Three-storey shopping destination in Singapore"></video>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 2 → assets/videos/fashion-2.mp4 -->
-              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 2"><span aria-hidden="true">Fashion &amp; Beauty 2<br>9:16</span></div>
+            <li class="project"><!-- Fashion and Beauty 2 -->
+              <video class="project__video" src="assets/videos/fashion-2.mp4" poster="assets/videos/fashion-2.jpg"
+                     controls playsinline preload="none" aria-label="Fashion and Beauty: Spend the day with me in Singapore, and how my hair survives the humidity"></video>
             </li>
-            <li class="project"><!-- TEMP VIDEO PLACEHOLDER: Fashion and Beauty 3 → assets/videos/fashion-3.mp4 -->
-              <div class="video-placeholder" role="img" aria-label="Fashion and Beauty video placeholder 3"><span aria-hidden="true">Fashion &amp; Beauty 3<br>9:16</span></div>
+            <li class="project"><!-- Fashion and Beauty 3 -->
+              <video class="project__video" src="assets/videos/fashion-3.mp4" poster="assets/videos/fashion-3.jpg"
+                     controls playsinline preload="none" aria-label="Fashion and Beauty: Girly day out: vintage bag shopping in Singapore"></video>
             </li>
           </ul>
         </div>

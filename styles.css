@@ -455,22 +455,12 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 }
 
 /* iPhone portrait (9:16) */
-.video-placeholder,
 .project__video {
   width: min(300px, 27vw);
   aspect-ratio: 9 / 16;
   border-radius: 24px;
   object-fit: cover;
-}
-.video-placeholder {
-  display: grid;
-  place-items: center;
-  background: var(--placeholder);
-  color: var(--placeholder-ink);
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  background: var(--placeholder);   /* shows while the cover image loads */
 }
 
 @media (max-width: 767px) {
@@ -488,7 +478,6 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
   }
   .projects::-webkit-scrollbar { display: none; }
   .project { scroll-snap-align: start; flex: 0 0 auto; }
-  .video-placeholder,
   .project__video { width: 62vw; }
 }
 
