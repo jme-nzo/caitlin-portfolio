@@ -30,7 +30,7 @@ Search `TEMP` in `index.html` to find every one.
 
 ## Social links
 
-The LinkedIn, Instagram and TikTok buttons at the bottom of Contact still point to placeholder profiles. In `index.html`, search for `PASTE YOUR` and replace each `href="…"` with the real profile link. Logos are in `assets/social/` (crimson PNGs).
+The LinkedIn, Instagram and TikTok buttons sit under the email line in Contact. To change a profile, edit its `href="…"` in `index.html` (search for `profile link`). Logos are in `assets/social/` (crimson PNGs).
 
 ## Colour palette
 
