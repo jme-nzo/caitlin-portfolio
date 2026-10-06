@@ -583,6 +583,31 @@ h1, h2, h3, p, dl, dd, figure { margin: 0; }
 .contact__email { color: var(--muted); }
 .contact__email a { color: var(--ink); font-weight: 700; text-underline-offset: 4px; }
 
+/* Social buttons (LinkedIn, Instagram, TikTok) at the bottom of Contact */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.social {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;                       /* comfortably above the 44px touch-target minimum */
+  border-radius: 999px;
+  background: rgba(246, 241, 222, 0.55);
+  border: 1px solid rgba(120, 13, 21, 0.25);
+  transition: background-color 0.25s var(--ease), transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.social img { width: 24px; height: 24px; }
+.social:hover { background: var(--btn-ink); border-color: var(--title); transform: translateY(-2px); }
+.social:active { transform: translateY(0) scale(0.96); }
+
+@media (max-width: 767px) {
+  .socials { gap: 20px; }             /* a little more room between thumbs */
+}
+
 .footer {
   padding: 24px var(--gutter) env(safe-area-inset-bottom);
   text-align: center;

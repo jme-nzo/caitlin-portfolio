@@ -28,6 +28,10 @@ Search `TEMP` in `index.html` to find every one.
 | Brand logos | Section 2, `.marquee__track` | Logo PNGs are in `assets/logos/` (black on transparent). To add or replace one, use a trimmed PNG and set its `--s` to `1 / √(width ÷ height)` so it matches the others' size. |
 | ~~Email~~ | Done | |
 
+## Social links
+
+The LinkedIn, Instagram and TikTok buttons at the bottom of Contact still point to placeholder profiles. In `index.html`, search for `PASTE YOUR` and replace each `href="…"` with the real profile link. Logos are in `assets/social/` (crimson PNGs).
+
 ## Colour palette
 
 Ivory · sand · dusty blue · crimson, on a 60/30/10 split. The colours are variables at the top of `styles.css`.
